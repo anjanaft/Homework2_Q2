@@ -42,6 +42,7 @@ books=[
     }];
 
 app.set('view engine','ejs');
+app.use(Express.static(__dirname+"/public"));
 app.get('/',(req,res)=>{
     res.render('index');
 });
@@ -53,7 +54,7 @@ app.get('/home/view',(req,res)=>{
     //res.send("hello welcome");
     res.render('view1');
 });
-app.listen(3000,()=>
+app.listen(process.env.PORT || 3000,()=>
 {
     console.log("Server running on http://localhost:3000");
 });
